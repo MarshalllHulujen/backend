@@ -21,10 +21,21 @@ export const getUser = async (input: { email: string; password: string }) => {
   }
 };
 
+export const getUserById = async (id: string) => {
+  try {
+    const result = await prisma.user.findUnique({ where: { id } });
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw new GraphQLError("Error fetching users");
+  }
+};
+
 export const registerUser = async (input: {
   email: string;
   password: string;
   name: string;
+  image: string;
 }) => {
   try {
     const result = await prisma.user.create({ data: input });

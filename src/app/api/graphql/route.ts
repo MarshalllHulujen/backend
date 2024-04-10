@@ -3,12 +3,6 @@ import { ApolloServer } from "@apollo/server";
 import { resolvers } from "@/graphql/resolvers";
 import { typeDefs } from "@/graphql/schemas";
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
 const server = new ApolloServer({
   resolvers,
   typeDefs,

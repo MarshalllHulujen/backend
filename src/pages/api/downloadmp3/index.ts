@@ -11,20 +11,16 @@ export default async function handler(
     const { url: videoURL } = req.query as { url: string };
 
     try {
-      // Check if the URL is valid
       if (!ytdl.validateURL(videoURL)) {
         throw new Error("Invalid YouTube video URL");
       }
 
-      // Get basic information about the video
       const videoInfo = await ytdl.getInfo(videoURL);
 
-      // Choose the format you want to download (e.g., "mp4")
       const format = ytdl.chooseFormat(videoInfo.formats, {
         quality: "highestaudio",
       });
 
-      // Set response headers for streaming video
       res.setHeader(
         "Content-Disposition",
         `attachment; filename="${videoInfo.videoDetails.title}.mp3"`

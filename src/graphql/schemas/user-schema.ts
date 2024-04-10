@@ -17,11 +17,13 @@ export const userTypeDefs = gql`
     email: String!
     password: String!
     name: String!
+    image: String!
   }
 
   type Query {
     getUsers: [User]!
     getUser(input: GetUserInput): User
+    getUserById(id: ID!): User
   }
 
   type Mutation {
