@@ -4,13 +4,16 @@ import { GraphQLError } from "graphql";
 export const createHistory = async ({
   title,
   userId,
+  link,
 }: {
   title: string;
   userId: string;
+  link: string;
 }) => {
   const result = await prisma.history.create({
     data: {
       title,
+      link,
       user: {
         connect: {
           id: userId,

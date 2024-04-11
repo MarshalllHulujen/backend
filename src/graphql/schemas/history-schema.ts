@@ -5,6 +5,7 @@ export const historyTypeDefs = gql`
     id: ID!
     userId: String!
     title: String
+    link: String
   }
 
   type Query {
@@ -12,6 +13,6 @@ export const historyTypeDefs = gql`
   }
 
   type Mutation {
-    createHistory(title: String!, userId: String!): History!
+    createHistory(title: String!, userId: String!, link: String!): History!
   }
 `;
