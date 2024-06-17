@@ -1,5 +1,3 @@
-// pages/api/download.js
-
 import { NextApiRequest, NextApiResponse } from "next";
 import ytdl from "ytdl-core";
 
